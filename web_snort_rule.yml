@@ -1,5 +1,5 @@
 ---
-- name: Add DDOS ids signature for ddos
+- name: Add web ids signature for web attack
   hosts: all
 
   vars:
@@ -11,7 +11,7 @@
     dest_ip: any
 
   tasks:
-    - name: Add snort ddos attack rule
+    - name: Add snort attack rule
       include_role:
         name: "ansible_security.ids_rule"
       vars:

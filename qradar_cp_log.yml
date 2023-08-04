@@ -17,3 +17,7 @@
       qradar_deploy:
         type: INCREMENTAL
       failed_when: false
+
+    - name: Add Check Point remote logging to Qradar(new)
+      ibm.qradar.qradar_log_sources:
+        

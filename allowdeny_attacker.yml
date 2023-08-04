@@ -1,0 +1,45 @@
+---
+- name: allowlist attacker
+  hosts: checkpoint
+
+  vars:
+    source_ip: "{{ hostvars['attacker']['private_ip2'] }}"
+    destination_ip: "{{ hostvars['snort']['private_ip2'] }}"
+    action_choice: accept
+
+  tasks:
+
+    - name: Create source IP host object
+      check_point.mgmt.cp_mgmt_hosts:
+        config:
+          name: "asa-{{ source_ip }}"
+          ipv4_address: "{{ source_ip }}"
+          auto_publish_session: true
+        state: "merged"
+
+    - name: Create destination IP host object
+      check_point.mgmt.cp_mgmt_hosts:
+        config:
+          name: "asa-{{ destination_ip }}"
+          ipv4_address: "{{ destination_ip }}"
+          auto_publish_session: true
+        state: "merged"
+
+    - name: Create access policy
+      check_point.mgmt.cp_mgmt_access_rule:
+        action: "{{ action_choice }}"
+        layer: Network
+        position: top
+        auto_publish_session: true
+        name: "asa-accept-{{ source_ip }}-to-{{ destination_ip }}-redux"
+        source: "asa-{{ source_ip }}"
+        destination: "asa-{{ destination_ip }}"
+        track:
+          type: log
+        state: "present"
+          
+    - name: Install policy
+      check_point.mgmt.cp_mgmt_install_policy:
+        policy_package: standard
+        install_on_all_cluster_members_or_fail: true
+      failed_when: false
