@@ -1,0 +1,9 @@
+---
+
+- name: setup demo
+  hosts: localhost
+  gather_facts: false
+
+
+  roles:
+    - setup_challenge
