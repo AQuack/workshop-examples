@@ -30,7 +30,7 @@
 
     - name: Import tasks from log_manager role
       include_role:
-        name: ansible_security.log_manager
+        name: log_manager
         tasks_from: forward_logs_to_syslog
       vars:
         syslog_server: "{{ hostvars['qradar']['private_ip'] }}"
