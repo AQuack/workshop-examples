@@ -36,7 +36,7 @@
   awx.awx.execution_environment:
     name: "BH EE"
     image: "quay.io/aquacken/rfshsec:latest"
-    credential: "Controller Credential"
+    #credential: "Controller Credential"
     validate_certs: false
 
 # Job templates
