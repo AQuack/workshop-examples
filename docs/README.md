@@ -1,13 +1,3 @@
-{% include sec_workshop_credentials.md %}
-
-# Black Hat Mini Challenge
-
-<!-- **Read this in other languages**: <br>
-[![uk](../../../images/uk.png) English](README.md),  [![japan](../../../images/japan.png) �,�](README.ja.md), [![france](../../../images/fr.png) Fran�ais](README.fr.md).<br> -->
-
-- TOC
-{:toc}
-
 ## The Background
 
 In the daily operation of security practitioners a particular need arises: when something suspicious happens and needs further attention, security operations need to deploy many tools to secure an enterprise IT. In many enterprise environments, security solutions are not integrated with each other and, in large organizations, different teams are in charge of different aspects of IT security, with no processes in common. That often leads to manual work and interaction between people of different teams which is error prone and above all, slow.
@@ -497,9 +487,3 @@ Let's review a new playbook called `Stop web attack sim
 now, launch the `Stop web attack` job template.
 
 You are done with the exercise. Congratulations!
-
-----
-
-### Navigation
-
-[Click here to return to the Ansible for Security Automation Challenge](../README.md)
